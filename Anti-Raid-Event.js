@@ -89,6 +89,17 @@
       "name": "Check Variable"
     },
     {
+      "member": "2",
+      "varName": "member",
+      "info": "0",
+      "varName2": "",
+      "iftrue": "2",
+      "iftrueVal": "17",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member"
+    },
+    {
       "channel": "5",
       "varName": "member",
       "message": "You were banned by an automated system due to having an account younger then 14 days, if you wish to be unbanned please contact **${tempVars(\"ownertag\")}**. Have a nice day 😃 ",
@@ -122,7 +133,7 @@
     },
     {
       "info": "0",
-      "find": "Logs_channel_ID_here",
+      "find": "Logs_Channel_ID_Here",
       "storage": "1",
       "varName": "logs",
       "name": "Find Channel"
@@ -130,7 +141,7 @@
     {
       "behavior": "0",
       "interpretation": "0",
-      "code": "const { RichEmbed } = require('discord.js')\nconst em = new RichEmbed()\n.setColor(\"#ff0000\")\n.setTitle(\"Logged\")\n.setAuthor(`${tempVars(\"username\")}`, `${tempVars(\"avatar\")}`)\n.setDescription(`The automated anti raid system banned a user \\n \\n User: \\n **${tempVars(\"membertag\")}** \\n \\n Account was **${tempVars(\"outputcheck\")}** old`)\n`${tempVars(\"logs\")}`.send(em)",
+      "code": "const { RichEmbed } = require('discord.js')\nconst em = new RichEmbed()\n.setColor(\"#ff0000\")\n.setTitle(\"Logged\")\n.setAuthor(`${tempVars(\"username\")}`, `${tempVars(\"avatar\")}`)\n.setDescription(`The automated anti raid system banned a user \\n \\n User: \\n **${tempVars(\"membertag\")}** \\n \\n Account was **${tempVars(\"outputcheck\")}** old`);\ntempVars(\"logs\").send(em);",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
@@ -142,9 +153,19 @@
       "name": "Ban Member"
     },
     {
-      "time": "2",
-      "measurement": "1",
-      "name": "Wait"
+      "info": "0",
+      "find": "Logs_Channel_ID_Here",
+      "storage": "1",
+      "varName": "logs",
+      "name": "Find Channel"
+    },
+    {
+      "channel": "5",
+      "varName": "logs",
+      "message": "The system banned a bot that was ${tempVars(\"outputcheck\")} old, because it was a bot there were no proper logs",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
     }
   ]
 }
